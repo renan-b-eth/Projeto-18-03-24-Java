@@ -23,9 +23,15 @@ public class ProdutoDAO {
 	public String inserir(Produto produto) throws SQLException {
 		PreparedStatement stmt = minhaConexao.prepareStatement("Insert into T_FIAP_Produto values(?, ?, ?, ?)");
 		
+		
+		//coloca os dados na sql banco de dados
+		
 		stmt.setInt(1, produto.getCodigo());
 		stmt.setString(2, produto.getTipo());
 		stmt.setString(3, produto.getMarca());
+		stmt.setDouble(3, produto.getValor());
+		
+		
 		return "Produto cadastrado com Sucesso!";
 	}
 	
